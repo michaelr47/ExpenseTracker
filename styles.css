@@ -13,7 +13,12 @@ body {
 }
 
 table {
-    width: 100%;
+    width: 70vw;
     border: 2px solid black;
     margin: 25px;
+}
+
+td {
+    border: 1px solid gray;
+    text-align: center;
 }
