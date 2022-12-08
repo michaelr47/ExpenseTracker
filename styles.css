@@ -16,6 +16,7 @@ table {
     width: 70vw;
     border: 2px solid black;
     margin: 25px;
+    height: 100%;
 }
 
 td {

@@ -2,33 +2,33 @@ const input = document.getElementById('itemExpense');
 const date = document.getElementById('itemDate');
 const amount = document.getElementById('itemAmount');
 const submitBtn = document.getElementById('submit');
-const rowContainer = document.getElementById('tr-container');
-const newTableRow = document.createElement('tr');
+
+const table = document.getElementById('table');
+const tbody = document.getElementById('tbody');
+
 
 submitBtn.addEventListener('click', () => {
-    let obj = [ 
-        {
-            name: input.value,
-            date: date.value,
-            amount: amount.value
-        }
-    ]
     
-    obj.forEach(data => {
-        console.log(data.name, data.date, data.amount);
-        
-        let td1 = document.createElement('td');
-        let td2 = document.createElement('td');
-        let td3 = document.createElement('td');
-        td1.innerHTML = data.name;
-        td2.innerHTML = data.date;
-        td3.innerHTML = '$' + data.amount;
-        rowContainer.append(td1);
-        rowContainer.append(td2);
-        rowContainer.append(td3);
-        newTableRow.append(rowContainer);
-        
-    });
+    const arrOfData = [
+        { 
+            name: input.value, 
+            date: date.value, 
+            amount: amount.value 
+        }
+     ]
+
+     let newRow = table.insertRow();
+     let cell1 = newRow.insertCell()
+     let cell2 = newRow.insertCell()
+     let cell3 = newRow.insertCell();
+
+     arrOfData.forEach(input => {
+        cell1.innerHTML = input.name;
+        cell2.innerHTML = input.date;
+        cell3.innerHTML = '$' + input.amount;
+     })
+
+    
     clearInputs();
 })
 
@@ -39,6 +39,3 @@ function clearInputs() {
 }
 
 
-// let td1 = document.createElement('td');
-// let td2 = document.createElement('td');
-// let td3 = document.createElement('td');
