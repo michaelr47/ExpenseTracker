@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -13,8 +14,8 @@ body {
 }
 
 table {
-    width: 70vw;
-    border: 2px solid black;
+    width: 75%;
+    border: 5px solid black;
     margin: 25px;
     height: 100%;
 }
@@ -22,4 +23,9 @@ table {
 td {
     border: 1px solid gray;
     text-align: center;
+}
+
+#trHeading > th {
+    border: 1px solid gray;
+  
 }
