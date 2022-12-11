@@ -18,23 +18,26 @@ function clearInputs() {
 
 
 function deleteRowData() {
-    let isTrue = true;
-    if (isTrue) {
-        confirm('Are you sure you want to delete this row?')
-        tbody.deleteRow(-1);
-    } else {
-        isTrue = false;
-    
-    }
+    // let isTrue = true;
+    // if (isTrue) {
+    //     confirm('Are you sure you want to delete this row?') 
+        tbody.deleteRow(-1)
+    // } else {
+    //     isTrue = false; 
+    // }
  }
+
  
  function editRowData() {
+    tbody.rows[0].cells[0].innerHTML = nameOfExpense.value;
+    tbody.rows[0].cells[1].innerHTML = date.value;
+    tbody.rows[0].cells[2].innerHTML = amount.value;
+}
 
- }
 
- 
 
 function inputToTableRow() {
+
     const arrOfData = [
         { 
             name: nameOfExpense.value, 
