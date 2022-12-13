@@ -28,29 +28,30 @@ function deleteRowData(td) {
     }
  }
 
+ let dataTypes = [
+    'text',
+    'date',
+    'text'
+];
+
+let inputTypes = [
+    'inputName',
+    'inputDate',
+    'inputAmount'
+];
  
  function editRowData(data) {
     
     let selectedRow = data.parentElement.parentElement;
-
-    let dataTypes = [
-		'text',
-		'date',
-		'text'
-	];
-	
-	let inputTypes = [
-		'inputName',
-		'inputDate',
-		'inputAmount'
-	];
 	
 	for (let i = 0; i < selectedRow.cells.length - 1; i++) {
-		selectedRow.cells[i].innerText = '';
+		let cell = selectedRow.cells[i]
 		let input = document.createElement('input');
+
+        cell.innerText = '';
 		input.setAttribute('type', dataTypes[i]);
 		input.setAttribute('id', inputTypes[i]);
-		selectedRow.cells[i].append(input);
+		cell.append(input);
 	}
 
     
@@ -61,15 +62,17 @@ function deleteRowData(td) {
 
 
     updateBtn.addEventListener('click', () => {
-        for (let i = 0; i < selectedRow.cells.length; i++) {
-			let cell = selectedRow.cells[i];
-			if (cell.getElementsByTagName('input').type == "text") {
+        for (let i = 0; i < selectedRow.cells.length - 1; i++) {
+			
+            let cell = selectedRow.cells[i];
+			let type = cell.getElementsByTagName('input')[0].type;
+
+			if (type == "text") {
                 cell.innerText = document.getElementById(inputTypes[i]).value;
-		}	
-			if (cell.getElementsByTagName('input').type == "date") {
+			} else {
                 cell.textContent = document.getElementById(inputTypes[i]).value;
             }
-        } 
+        }
 
         updateBtn.style.display = 'none';
     });
@@ -114,46 +117,20 @@ function inputToTableRow() {
 
 }
 
-submitBtn.addEventListener('click', inputToTableRow);
-// submitBtn.addEventListener('click', createNewRow);
+function checkValidityOnInputs() {
+    // let reg = new RegExp('^[0-9]*$')
+    if (!nameOfExpense.value && !date.checkValidity() && !amount.value) {
+        alert('Please fill in all 3 fields.')
+        submitBtn.disabled = true;
+    } 
+}
 
-//old editRowData function 
-// function editRowData(data) {
-//     let selectedRow = data.parentElement.parentElement;
+submitBtn.addEventListener('click', () => {
+    
+    checkValidityOnInputs();
+    inputToTableRow();
 
-//     selectedRow.cells[0].innerText = ‘’
-//     selectedRow.cells[1].innerText = ‘’
-//     selectedRow.cells[2].innerText = ‘’
+});
 
-//     let input1 = document.createElement(‘input’);
-//     input1.setAttribute(‘type’, ‘text’);
-//     input1.setAttribute(‘id’, ‘inputName’)
 
-//     let input2 = document.createElement(‘input’);
-//     input2.setAttribute(‘type’, ‘date’);
-//     input2.setAttribute(‘id’, ‘inputDate’);
 
-//     let input3 = document.createElement(‘input’);
-//     input3.setAttribute(‘type’, ‘text’);
-//     input3.setAttribute(‘id’, ‘inputAmount’);
-
-//     for (let i = 0; i < selectedRow.length; i++) {
-//         let input = document.createElement(‘input’);
-//         selectedRow.cells[i].append(input);
-//     }
-
-//     selectedRow.cells[0].append(input1);
-//     selectedRow.cells[1].append(input2);
-//     selectedRow.cells[2].append(input3);
-
-//     const updateBtn = document.createElement(‘button’);
-//     updateBtn.innerText = ‘Update’;
-//     selectedRow.cells[3].append(updateBtn);
-
-//     updateBtn.addEventListener(‘click’, () => {
-//         selectedRow.cells[0].textContent = document.getElementById(‘inputName’).value;
-//         selectedRow.cells[1].textContent = document.getElementById(‘inputDate’).value;
-//         selectedRow.cells[2].textContent = document.getElementById(‘inputAmount’).value;
-//         updateBtn.style.display = ‘none’;
-//     });
-// }
