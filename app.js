@@ -17,40 +17,62 @@ function clearInputs() {
 }
 
 
-function deleteRowData(d) {
-    // let isTrue = true;
-    // if (isTrue) {
-    //     confirm('Are you sure you want to delete this row?') 
-    let row = d.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-   
-        // tbody.deleteRow(row);
-    // } else {
-    //     isTrue = false; 
-    // }
+function deleteRowData(td) {
+
+    let isTrue = true;
+    if (confirm('Are you sure you want to delete this row?') !== isTrue ) {
+        isTrue = false;
+    } else {
+        let row = td.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
  }
 
  
  function editRowData(data) {
-    console.log(data);
-    // tbody.rows[0].cells[0].innerHTML = nameOfExpense.value;
-    // tbody.rows[0].cells[1].innerHTML = date.value;
-    // tbody.rows[0].cells[2].innerHTML = amount.value;
+    
     let selectedRow = data.parentElement.parentElement;
- 
-    document.getElementById('itemExpense').value = selectedRow.cells[0].innerHTML;
-    document.getElementById('itemDate').value = selectedRow.cells[1].innerHTML;
-    document.getElementById('itemAmount').value = selectedRow.cells[2].innerHTML;
-    console.log(selectedRow);
-    // for (let i = 0; i < tbody.rows.length; i++) {
-    //     tbody.rows[i].addEventListener('click', () => {
-    //           tbody.rows[i] = nameOfExpense.value;
-    //           tbody.rows[i] = date.value;
-    //           tbody.rows[i] = amount.value;
-        
-    //     })
-    // }
-   
+
+    let dataTypes = [
+		'text',
+		'date',
+		'text'
+	];
+	
+	let inputTypes = [
+		'inputName',
+		'inputDate',
+		'inputAmount'
+	];
+	
+	for (let i = 0; i < selectedRow.cells.length - 1; i++) {
+		selectedRow.cells[i].innerText = '';
+		let input = document.createElement('input');
+		input.setAttribute('type', dataTypes[i]);
+		input.setAttribute('id', inputTypes[i]);
+		selectedRow.cells[i].append(input);
+	}
+
+    
+    const updateBtn = document.createElement('button');
+    updateBtn.innerText = 'Update';
+
+    selectedRow.cells[3].append(updateBtn);
+
+
+    updateBtn.addEventListener('click', () => {
+        for (let i = 0; i < selectedRow.cells.length; i++) {
+			let cell = selectedRow.cells[i];
+			if (cell.getElementsByTagName('input').type == "text") {
+                cell.innerText = document.getElementById(inputTypes[i]).value;
+		}	
+			if (cell.getElementsByTagName('input').type == "date") {
+                cell.textContent = document.getElementById(inputTypes[i]).value;
+            }
+        } 
+
+        updateBtn.style.display = 'none';
+    });
 
 }
 
@@ -71,14 +93,15 @@ function inputToTableRow() {
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);
     let cell4Del = newRow.insertCell(3);
-   
+    
 
     arrOfData.forEach(input => {
-        cell1.innerHTML = input.name;
-        cell2.innerHTML = input.date;
-        cell3.innerHTML = '$' + input.amount;
-        cell4Del.innerHTML = `
-            <button onclick="deleteRowData(this)">
+        cell1.textContent = input.name;
+        cell2.textContent = input.date;
+        cell3.textContent = '$' + input.amount;
+        cell4Del.innerHTML = 
+        `
+            <button onclick="deleteRowData(this)" style="padding: 1px;">
                 <i class="fa-solid fa-trash"></i>
             </button>
             <button onclick="editRowData(this)">
@@ -92,3 +115,45 @@ function inputToTableRow() {
 }
 
 submitBtn.addEventListener('click', inputToTableRow);
+// submitBtn.addEventListener('click', createNewRow);
+
+//old editRowData function 
+// function editRowData(data) {
+//     let selectedRow = data.parentElement.parentElement;
+
+//     selectedRow.cells[0].innerText = ‘’
+//     selectedRow.cells[1].innerText = ‘’
+//     selectedRow.cells[2].innerText = ‘’
+
+//     let input1 = document.createElement(‘input’);
+//     input1.setAttribute(‘type’, ‘text’);
+//     input1.setAttribute(‘id’, ‘inputName’)
+
+//     let input2 = document.createElement(‘input’);
+//     input2.setAttribute(‘type’, ‘date’);
+//     input2.setAttribute(‘id’, ‘inputDate’);
+
+//     let input3 = document.createElement(‘input’);
+//     input3.setAttribute(‘type’, ‘text’);
+//     input3.setAttribute(‘id’, ‘inputAmount’);
+
+//     for (let i = 0; i < selectedRow.length; i++) {
+//         let input = document.createElement(‘input’);
+//         selectedRow.cells[i].append(input);
+//     }
+
+//     selectedRow.cells[0].append(input1);
+//     selectedRow.cells[1].append(input2);
+//     selectedRow.cells[2].append(input3);
+
+//     const updateBtn = document.createElement(‘button’);
+//     updateBtn.innerText = ‘Update’;
+//     selectedRow.cells[3].append(updateBtn);
+
+//     updateBtn.addEventListener(‘click’, () => {
+//         selectedRow.cells[0].textContent = document.getElementById(‘inputName’).value;
+//         selectedRow.cells[1].textContent = document.getElementById(‘inputDate’).value;
+//         selectedRow.cells[2].textContent = document.getElementById(‘inputAmount’).value;
+//         updateBtn.style.display = ‘none’;
+//     });
+// }
