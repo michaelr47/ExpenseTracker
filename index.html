@@ -12,6 +12,7 @@
 <body>
     <h1>Expense Tracker</h1>
     <h2>Add some expenses below:</h2>
+    <p>*All 3 input fields below need to be filled out*</p>
     <div id="data-wrapper">
         <label for="item">Name: </label>
         <input id="itemExpense" name="item" type="text">
@@ -20,7 +21,7 @@
         <input id="itemDate" type="date">
 
         <label for="amount">Amount: </label>
-        <input id="itemAmount" name="amount" type="text" placeholder="$">
+        <input id="itemAmount" name="amount" type="number" placeholder="$">
 
         <button id="submit">Submit</button>
     </div>
@@ -34,6 +35,9 @@
           </tr>
         </thead>
         <tbody id="tbody">
+          <tr id="noDataYet">
+            <td><h3>No expenses added yet!</h3></td>
+          </tr>
         </tbody>
       </table>
 </body>

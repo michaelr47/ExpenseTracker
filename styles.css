@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; 
 }
 
 body {
@@ -15,17 +14,24 @@ body {
 
 table {
     width: 75%;
-    border: 5px solid black;
+    border: 3px solid black;
     margin: 25px;
     height: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
 }
 
 td {
     border: 1px solid gray;
     text-align: center;
+    padding: 10px;
 }
 
 #trHeading > th {
     border: 1px solid gray;
+  
+}
+tr:nth-child(even) {
+    background-color: lightgrey;
   
 }
