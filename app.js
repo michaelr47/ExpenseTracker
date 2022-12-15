@@ -23,7 +23,7 @@ function clearInputs() {
 function deleteRowData(el) {
     let userConfirmed = confirm('Are you sure you want to delete this row?');
     if (userConfirmed) {
-        let row = el.parentNode.parentNode;
+        let row = el.parentNode.parentNode; 
         row.parentNode.removeChild(row);
     }
 }
@@ -62,10 +62,19 @@ let inputIDs = [
 		cell.append(input);
 	}
 
-    // creating update button...       
+    // creating update button       
     const updateBtn = document.createElement('button');
     updateBtn.innerText = 'Update'; 
-    // ... and appending it into last cell         
+    // styling button 
+    let styleBtn = updateBtn.style;
+    styleBtn.backgroundColor = '#fa9b16';
+    styleBtn.color = 'white';
+    styleBtn.padding = 4 + 'px';
+    styleBtn.border = 'none';
+    styleBtn.borderRadius = 5 + 'px';
+    styleBtn.cursor = 'pointer';
+    
+    //  and appending it into last cell         
     selectedRow.cells[fourthCell].append(updateBtn);
     // event listener on updateBtn to get new values of each cell update them to their corresponding cell
     updateBtn.addEventListener('click', () => {
@@ -119,10 +128,23 @@ function inputToTableRow() {
         cell3.textContent = '$' + input.amount;
         cell4Del.innerHTML = 
         `
-            <button onclick="deleteRowData(this)">
-                <i class="fa-solid fa-trash"></i>
+            <button onclick="deleteRowData(this)" style="
+                background-color: red;
+                padding: 4px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            ">
+            <i class="fa-solid fa-trash fa-lg" style="color: whitesmoke;"></i>
             </button>
-            <button onclick="editRowData(this)">
+            <button onclick="editRowData(this)" style="
+                background-color: #017BFE;
+                color: white;
+                padding: 4px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            ">
                     Edit
             </button>
         `

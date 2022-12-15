@@ -10,28 +10,34 @@
     <title>Expense Tracker</title>
 </head>
 <body>
+  <header>
     <h1>Expense Tracker</h1>
+  </header>
     <h2>Add some expenses below:</h2>
-    <p>*All 3 input fields below need to be filled out*</p>
+    <p><span class="redStar">*</span>All 3 input fields below need to be filled out<span class="redStar">*</span></p>
+
     <div id="data-wrapper">
         <label for="item">Name: </label>
         <input id="itemExpense" name="item" type="text">
-
+      
         <label for="date">Date: </label>  
         <input id="itemDate" type="date">
-
-        <label for="amount">Amount: </label>
-        <input id="itemAmount" name="amount" type="number" placeholder="$">
-
-        <button id="submit">Submit</button>
+      <!-- </div> -->
     </div>
-
+    <div id="amountDiv">
+        <label id="amountLabel" for="amount">Amount: </label>
+        <input id="itemAmount" name="amount" type="number" placeholder="$">
+    </div>
+    
+    <button id="submit">Submit</button>
+    
     <table id="table">
         <thead>
           <tr id="trHeading">
             <th>Name</th>
             <th>Date</th>
             <th>Amount</th>
+            <th style="visibility: hidden;">hidden</th>
           </tr>
         </thead>
         <tbody id="tbody">
