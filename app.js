@@ -8,7 +8,7 @@ const table         = document.getElementById('table'); // ---------------------
 const tbody         = document.getElementById('tbody'); // --------------------------------------|
 // ----------------------------------------------------------------------------------------------|
 
-// declaring variables in global scope to assingm new values in functions later..
+// declaring variables in global scope to assign new values in functions later..
 let selectedRow = null;      
 let fourthCell;
 
@@ -43,7 +43,7 @@ let inputIDs = [
 ];
 
 
-//function to to edit all 3 cells in corresponding row upon clicking edit button
+//function to to edit all 3 cells in corresponding row upon clicking edit button and appending update button
  function editRowData(data) {
 
     let selectedRow = data.parentElement.parentElement;  // gets the row from table
@@ -116,6 +116,7 @@ function inputToTableRow() {
      ]
     // creating new rows and cells
     let newRow = tbody.insertRow(tbody.length);
+    newRow.classList = 'animatedTR';
     let cell1 = newRow.insertCell(0);
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);

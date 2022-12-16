@@ -110,3 +110,35 @@ tr:nth-child(even) {
   
 }
 
+.animatedTR {
+    animation: rowUp .4s linear;
+    
+}
+
+@keyframes rowUp {
+
+   0% {
+    opacity: .2;
+    transform: translateY(75px);
+   } 
+
+   25% {
+    opacity: .3;
+    transform: translateY(50px);
+   }
+
+   50% {
+    opacity: .5;
+    transform: translateY(25px);
+   }
+
+   75% {
+    opacity: .7;
+    transform: translateY(-5px);
+   }
+
+   100% {
+    opacity: .9;
+    transform: translateY(0px);
+   }
+}
