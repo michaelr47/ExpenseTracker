@@ -45,6 +45,8 @@ let inputIDs = [
 
 //function to to edit all 3 cells in corresponding row upon clicking edit button and appending update button
  function editRowData(data) {
+    let editButton = data; // data is essentially the edit button 
+    editButton.style.display = 'none'; // and display it to none on click
 
     let selectedRow = data.parentElement.parentElement;  // gets the row from table
     
@@ -95,6 +97,7 @@ let inputIDs = [
         //end of loop
         
         updateBtn.style.display = 'none'; // upon clicking button, it disappears...
+        editButton.style.display = 'inline'; // display edit button back when clicking updateBtn
     });
 
 }
