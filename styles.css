@@ -142,3 +142,9 @@ tr:nth-child(even) {
     transform: translateY(0px);
    }
 }
+
+#totalAmountDiv {
+    width: 1080px;
+    text-align: center;
+    display: none;
+}

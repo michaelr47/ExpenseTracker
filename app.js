@@ -155,9 +155,20 @@ function inputToTableRow() {
      });
      // calling this func to clear input after clicking submit btn.
     clearInputs();
-    
+    displayAndAddAmount()
 }
 // and of course adding an event listener to submit button 😅
 submitBtn.addEventListener('click', inputToTableRow);
 
+function displayAndAddAmount() {
+    const totalAmountDiv = document.getElementById('totalAmountDiv');
+    let lengthRows = tbody.rows.length;
+   
+    for (let i = 1; i < lengthRows; i++) {
+    if (lengthRows > 4) {
+        totalAmountDiv.style.display = 'block';
+    }
+    
+  }   
+}
 
