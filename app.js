@@ -157,9 +157,11 @@ function inputToTableRow() {
     clearInputs();
    setTimeout(displayAmount, 1000);
 }
+
 // and of course adding an event listener to submit button 😅
 submitBtn.addEventListener('click', inputToTableRow);
 
+// function to display the div
 function displayAmount() {
 
     const totalAmountDiv = document.getElementById('totalAmountDiv');
@@ -171,14 +173,32 @@ function displayAmount() {
 
 }
 
+//declaring and accessing add button
 const addBtn = document.getElementById('addAmount');
+addBtn.style.backgroundColor = 'purple';
+addBtn.style.border = 'none';
+addBtn.style.padding = 10 + 'px';
+addBtn.style.borderRadius = 5 + 'px';
+addBtn.style.color = 'white';
+addBtn.style.cursor = 'pointer';
+
+//adding event listener to add up all 3rd cells in every row to get the total
 addBtn.addEventListener('click', () => {
-    let lengthRows = tbody.rows;
+    const totalSpan = document.getElementById('totalSpan');
+    totalSpan.style.fontSize = 20 + 'px';
+    totalSpan.style.color = '#cc1f39';
 
-    let cells = lengthRows.cells;
- 
+    let total = 0; 
+
+    let lengthRows = tbody.rows.length;
     for (let i = 0; i < lengthRows; i++) {
-        // console.log(lengthRows[i])
-    }
 
-})
+      let tbodyRows = tbody.rows[i];
+      let cell = tbodyRows.querySelector('td:nth-child(3)'); // gets the 3rd cell
+      if (cell) {
+        total += parseInt(cell.textContent.replace('$', '')); // parseInt & replacing special char -> $
+        totalSpan.innerText = '$' + total;
+
+      }
+    }
+});
