@@ -188,17 +188,18 @@ addBtn.addEventListener('click', () => {
     totalSpan.style.fontSize = 20 + 'px';
     totalSpan.style.color = '#cc1f39';
 
-    let total = 0; 
-
+    let total = []; 
     let lengthRows = tbody.rows.length;
-    for (let i = 0; i < lengthRows; i++) {
 
+    for (let i = 0; i < lengthRows; i++) {
       let tbodyRows = tbody.rows[i];
+      
       let cell = tbodyRows.querySelector('td:nth-child(3)'); // gets the 3rd cell
       if (cell) {
-        total += parseInt(cell.textContent.replace('$', '')); // parseInt & replacing special char -> $
-        totalSpan.innerText = '$' + total;
-
+        total.push(parseInt(cell.textContent.replace('$', ''))); // parseInt & replacing special char -> $
       }
+
     }
+    totalSpan.innerText = '$' + total.reduce((acc, curr) => acc + curr);
+    return totalSpan;
 });
