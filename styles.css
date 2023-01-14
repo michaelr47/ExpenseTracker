@@ -33,7 +33,7 @@ p {
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid black;
     text-align:center;
     
@@ -82,12 +82,11 @@ input {
 }
 
 table {
-    width: 75%;
+    width: 55%;
     border: 3px solid black;
     margin: 15px 5px;
     height: 100%;
     border-collapse: collapse;
-    border-top-left-radius: 1rem;
     background-color: white;
 }
 
@@ -151,6 +150,7 @@ tr:nth-child(even) {
 
 
 @media only screen and (max-width: 650px) {
+   
     #data-wrapper {
         display: flex;
         flex-direction: column;
@@ -163,5 +163,8 @@ tr:nth-child(even) {
     }
     #amountDiv input {
         width: 225px;
+    }
+    #itemAmount {
+        margin-right: 15px;
     }
 }
