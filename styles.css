@@ -69,17 +69,22 @@ input {
 #submit {
     width: 5.5rem;
     height: 2rem;
-    border-radius: 20px;
-    border: 1px solid black;
-    background-color: #1C885F;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 3px solid black;
+    
+    background-color: #169263;
     color: white;
     transition: background-color .5s;
     cursor: pointer;
 }
 
 #submit:hover {
-    background: rgb(41, 174, 41);
+    background: rgb(51, 192, 51);
 }
+#submit:active {
+    border: 2px solid green;
+} 
 
 table {
     width: 55%;
@@ -88,6 +93,7 @@ table {
     height: 100%;
     border-collapse: collapse;
     background-color: white;
+    box-shadow: 0px 3px 10px rgb(106, 105, 105);
 }
 
 /* each cells */
