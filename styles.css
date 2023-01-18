@@ -134,13 +134,13 @@ tr:nth-child(even) {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    /* display: none; */
+    display: none;
 }
 
 .modal-content {
     background-color: rgb(220, 216, 216);
     margin: 15rem auto;
-    width: 60%;
+    width: 50%;
     height: 15rem;
     padding: 20px 15px;
     border: 2px solid gray;
@@ -149,29 +149,27 @@ tr:nth-child(even) {
     flex-direction: column;
     justify-content: space-between;
 }
+.modalText {text-align: center;}
 
-.modal-x {
-    text-align: right;
-    font-size: 1.5rem;
-    margin: 0px 5px 10px;
-    padding: 5px;
-    
-}
-.modal-x:hover {
-    color: white;
-    background-color: gray;
-    cursor: pointer;
-    border-radius: 3px;
-
-}
-
+.questionModal {font-size: 1.3em;}
 .modalTop { text-align: right; }
-.modalBottom {
-    
-    text-align: right;
+.modalBottom { text-align: right; }
+.btn {
+    padding: 10px;
+    border: 1px solid black;
+    margin: 5px;
+    background-color: white;
+    transition: .2s background-color ease-in;
+    cursor:pointer;
 }
-
-
+.btn:nth-child(1):hover {
+    background-color: rgb(243, 64, 64);
+    color: white;
+}
+.btn:nth-child(2):hover {
+    background-color: green;
+    color: white;
+}
 @keyframes rowUp {
 
    0% {

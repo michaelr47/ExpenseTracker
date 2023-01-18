@@ -23,7 +23,7 @@ function clearInputs() {
 function deleteRowData(btn) {
     const modal = document.getElementById('modal')
     const modalBttm = document.getElementById('modalBottom');
-    console.log(btn);
+
     
     
 }
