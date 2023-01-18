@@ -42,6 +42,7 @@ input {
     text-align:center;
     
 }
+hr { border: 1px solid black; }
 
 #data-wrapper {
     display: flex;
@@ -125,7 +126,7 @@ tr:nth-child(even) {
 }
 
 .modal {
-    background-color: rgba(75, 70, 70, 0.7);
+    background-color: rgba(18, 17, 17, 0.7); 
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -133,11 +134,24 @@ tr:nth-child(even) {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    display: none;
+    /* display: none; */
+}
+
+.modal-content {
+    background-color: rgb(220, 216, 216);
+    margin: 15rem auto;
+    width: 60%;
+    height: 15rem;
+    padding: 20px 15px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .modal-x {
-    float: right;
+    text-align: right;
     font-size: 1.5rem;
     margin: 0px 5px 10px;
     padding: 5px;
@@ -151,15 +165,10 @@ tr:nth-child(even) {
 
 }
 
-.modal-content {
-    background-color: rgb(220, 216, 216);
-    margin: 15rem auto;
-    width: 70%;
-    height: 12rem;
-    padding: 20px 15px;
-    border: 2px solid gray;
-    border-radius: 5px;
+.modalTop { text-align: right; }
+.modalBottom {
     
+    text-align: right;
 }
 
 

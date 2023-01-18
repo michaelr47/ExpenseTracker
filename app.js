@@ -20,12 +20,12 @@ function clearInputs() {
 }
 
 //function executes upon clicking trash button to delete a specific row
-function deleteRowData(el) {
-    let userConfirmed = confirm('Are you sure you want to delete this row?');
-    if (userConfirmed) {
-        let row = el.parentNode.parentNode; 
-        row.parentNode.removeChild(row);
-    }
+function deleteRowData(btn) {
+    const modal = document.getElementById('modal')
+    const modalBttm = document.getElementById('modalBottom');
+    console.log(btn);
+    
+    
 }
 
 // array to iterate through assigning input types to inputs
