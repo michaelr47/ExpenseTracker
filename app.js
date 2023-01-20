@@ -21,9 +21,21 @@ function clearInputs() {
 
 //function executes upon clicking trash button to delete a specific row
 function deleteRowData(btn) {
-    const modal = document.getElementById('modal')
-    const modalBttm = document.getElementById('modalBottom');
+    const modal = document.getElementById('myModal');
+    const cancelBtn = document.getElementById('cancelBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    modal.style.display = 'block';
 
+    cancelBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    })
+    
+    
+    yesBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        let row = btn.parentNode.parentNode; 
+        row.parentNode.removeChild(row);
+    })
     
     
 }
