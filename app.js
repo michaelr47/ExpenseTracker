@@ -36,7 +36,12 @@ function deleteRowData(btn) {
         let row = btn.parentNode.parentNode; 
         row.parentNode.removeChild(row);
     })
-    
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
     
 }
 
