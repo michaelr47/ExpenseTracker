@@ -118,9 +118,10 @@ let inputIDs = [
 // funciion to get input values appended to each cell
 function inputToTableRow() {
     let trNoExpenseText = document.getElementById('noDataYet'); // accessing tr html element and ........
-    trNoExpenseText.style.display = 'none'; // ....... displaying it to 'none' upon clicking submit
+     // ....... displaying it to 'none' upon clicking submit
 
     if (!nameOfExpense.value || !date.value || !amount.value) { return } // checking for validation on each input field
+    if (nameOfExpense.value || date.value || amount.value) { trNoExpenseText.style.display = 'none'; }
         // an array of objects to iterate through ..
     const arrOfData = [     
         { 
