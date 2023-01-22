@@ -148,6 +148,7 @@ tr:nth-child(even) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    animation: animatetop .4s;
 }
 .modalText {text-align: center;}
 
@@ -170,6 +171,17 @@ tr:nth-child(even) {
     background-color: green;
     color: white;
 }
+
+@keyframes animatetop {
+    from {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    to { 
+        transform: translate(0, 0);
+         opacity: 1}
+}
+
 @keyframes rowUp {
 
    0% {
