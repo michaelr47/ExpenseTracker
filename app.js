@@ -119,9 +119,14 @@ let inputIDs = [
 
 }
 
-
+const expenseCount = document.getElementById('totalExpenses');
+let expenseCounter = 0;
 // funciion to get input values appended to each cell
 function inputToTableRow() {
+    
+    expenseCounter++;
+    expenseCount.innerText = expenseCounter;
+    console.log(expenseCounter);
     let trNoExpenseText = document.getElementById('noDataYet'); // accessing tr html element and ........
      // ....... displaying it to 'none' upon clicking submit
 

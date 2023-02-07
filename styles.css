@@ -94,7 +94,7 @@ hr { border: 1px solid black; }
 table {
     width: 55%;
     border: 3px solid black;
-    margin: 15px 5px;
+    margin: 10px 5px;
     height: auto;
     border-collapse: collapse;
     background-color: white;
@@ -170,6 +170,12 @@ tr:nth-child(even) {
 .btn:nth-child(2):hover {
     background-color: green;
     color: white;
+}
+
+.expenseCount {
+    padding: 5px;
+    margin: 5px;
+    text-align: center; 
 }
 
 @keyframes animatetop {
