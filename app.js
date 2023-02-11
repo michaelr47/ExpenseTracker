@@ -124,13 +124,14 @@ let expenseCounter = 0;
 // funciion to get input values appended to each cell
 function inputToTableRow() {
     
-    expenseCounter++;
-    expenseCount.innerText = expenseCounter;
-    console.log(expenseCounter);
+    // expenseCounter++;
+    // expenseCount.innerText = expenseCounter;
+    // console.log(expenseCounter);
     let trNoExpenseText = document.getElementById('noDataYet'); // accessing tr html element and ........
      // ....... displaying it to 'none' upon clicking submit
 
-    if (!nameOfExpense.value || !date.value || !amount.value) { return } // checking for validation on each input field
+    if (!nameOfExpense.value || !date.value || !amount.value) { return } 
+    else { expenseCounter++; expenseCount.innerText = expenseCounter;  }  // checking for validation on each input field
     if (nameOfExpense.value || date.value || amount.value) { trNoExpenseText.style.display = 'none'; }
         // an array of objects to iterate through ..
     const arrOfData = [     
