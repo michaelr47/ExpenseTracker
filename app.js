@@ -85,15 +85,8 @@ let inputIDs = [
     const updateBtn = document.createElement('button');
     updateBtn.innerText = 'Update'; 
     // styling button 
-    let styleBtn = updateBtn.style;
-    styleBtn.backgroundColor = '#fa9b16';
-    styleBtn.color = 'white';
-    styleBtn.padding = 4 + 'px';
-    styleBtn.border = 'none';
-    styleBtn.borderRadius = 5 + 'px';
-    styleBtn.cursor = 'pointer';
-    
-    //  and appending it into last cell         
+    updateBtn.classList.add('update');
+    //  appending it into last cell         
     selectedRow.cells[fourthCell].append(updateBtn);
     // event listener on updateBtn to get new values of each cell update them to their corresponding cell
     updateBtn.addEventListener('click', () => {
@@ -179,7 +172,7 @@ function inputToTableRow() {
    setTimeout(displayAmount, 1000);
 }
 
-// and of course adding an event listener to submit button 😅
+
 submitBtn.addEventListener('click', inputToTableRow);
 
 // function to display the div
